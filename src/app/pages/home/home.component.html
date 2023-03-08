@@ -15,15 +15,11 @@
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main">
       <ul class="todo-list">
-        <li class="completed">
-          <app-task title="Learn JavaScript" [completed]="true"></app-task>
-        </li>
-        <li>
-          <app-task title="Buy a unicorn" [completed]="true"></app-task>
-        </li>
-        <li class="editing">
-          <app-task title="Make dishes" [completed]="true"></app-task>
-        </li>
+        <ng-container *ngFor="let task of tasks">
+          <li class="completed" [ngClass]="{'completed':task.completed,'editing':false}">
+            <app-task [task]="task" (taskClick)="completeTask($event)" (taskDelete)="deleteTask($event)" ></app-task>
+          </li>
+        </ng-container>
       </ul>
     </section>
     <!-- This footer should be hidden by default and shown when there are todos -->

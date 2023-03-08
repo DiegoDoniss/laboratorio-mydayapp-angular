@@ -1,11 +1,13 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {TaskInterface} from "src/app/interfaces/taskinterface";
+
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
-  @Input() title: string = "";
-  @Input() completed: boolean = false;
+  @Input() task!: TaskInterface;
+  @Output() taskClick: EventEmitter<string> = new EventEmitter<string>();
+  @Output() taskDelete: EventEmitter<string> = new EventEmitter<string>();
 }
