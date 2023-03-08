@@ -8,6 +8,8 @@
         placeholder="Type new todo"
         autofocus
         type="text"
+        [formControl]="newTask"
+        (keyup.enter)="addTask()"
       />
     </div>
   </header>
@@ -16,7 +18,7 @@
     <section *ngIf="tasks.length>0" class="main">
       <ul class="todo-list">
         <ng-container *ngFor="let task of tasks">
-          <li class="completed" [ngClass]="{'completed':task.completed,'editing':false}">
+          <li [ngClass]="{'completed':task.completed,'editing':false}">
             <app-task [task]="task" (taskClick)="completeTask($event)" (taskDelete)="deleteTask($event)" ></app-task>
           </li>
         </ng-container>
