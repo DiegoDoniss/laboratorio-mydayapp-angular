@@ -21,8 +21,14 @@ export class TaskComponent {
       this.taskEdit.emit({id: this.task.id, title: value})
     }
   }
-  onEditMode(){
+
+  onEditMode() {
     this.editMode = true
     this.input.nativeElement.focus()
+  }
+
+  exitEditMode() {
+    this.editMode = false
+    this.input.nativeElement.value = this.task.title
   }
 }

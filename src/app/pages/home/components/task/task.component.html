@@ -8,6 +8,7 @@
     class="edit"
     [value]="task.title"
     (keydown.enter)="onEnter(editValue.value)"
+    (keyup.escape)="exitEditMode()"
     #editValue
   />
 </li>
