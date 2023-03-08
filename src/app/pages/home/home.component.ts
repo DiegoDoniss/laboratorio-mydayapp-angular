@@ -47,7 +47,7 @@ export class HomeComponent {
     const {id, title} = editTask
     this.tasks = this.tasks.map(task => {
       if (task.id === id) {
-        task.title = title
+        task.title = title.trim()
       }
       return task
     })

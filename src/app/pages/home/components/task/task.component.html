@@ -1,8 +1,13 @@
 <li [ngClass]="{'completed':task.completed,'editing':editMode}">
   <div class="view">
     <input class="toggle" type="checkbox" [checked]="task.completed" (click)="taskClick.emit(task.id)"/>
-    <label (dblclick)="editMode=true">{{task.title}}</label>
+    <label (dblclick)="onEditMode()">{{task.title}}</label>
     <button class="destroy" (click)="taskDelete.emit(task.id)"></button>
   </div>
-  <input class="edit" [value]="task.title" (keydown.enter)="onEnter(editValue.value)" #editValue/>
+  <input
+    class="edit"
+    [value]="task.title"
+    (keydown.enter)="onEnter(editValue.value)"
+    #editValue
+  />
 </li>

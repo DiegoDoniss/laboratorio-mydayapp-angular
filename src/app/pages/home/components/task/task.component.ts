@@ -1,6 +1,5 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 import {TaskInterface} from "src/app/interfaces/taskinterface";
-import {FormControl, Validators} from "@angular/forms";
 
 
 @Component({
@@ -13,6 +12,7 @@ export class TaskComponent {
   @Output() taskDelete: EventEmitter<string> = new EventEmitter<string>();
   @Output() taskEdit: EventEmitter<{ id: string, title: string }> = new EventEmitter<{ id: string, title: string }>();
   editMode: boolean = false;
+  @ViewChild('editValue') input!: ElementRef;
 
 
   onEnter(value: string) {
@@ -20,5 +20,9 @@ export class TaskComponent {
       this.editMode = false
       this.taskEdit.emit({id: this.task.id, title: value})
     }
+  }
+  onEditMode(){
+    this.editMode = true
+    this.input.nativeElement.focus()
   }
 }
