@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
-import {TaskInterface} from "src/app/interfaces/taskinterface";
+import {TaskInterface} from "src/app/interfaces/taskInterface";
 
 
 @Component({

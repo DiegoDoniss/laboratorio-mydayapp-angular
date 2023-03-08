@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {TaskInterface} from 'src/app/interfaces/taskinterface';
+import {TaskInterface} from 'src/app/interfaces/taskInterface';
+import {FilterInterface} from "src/app/interfaces/filterInterface";
 import {FormControl, Validators} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 const constTasks: TaskInterface[] = [
   {id: '0', title: 'Learn JavaScript', completed: true},
@@ -14,10 +18,23 @@ const constTasks: TaskInterface[] = [
 })
 export class HomeComponent implements OnInit {
   tasks!: TaskInterface[];
+  filters: FilterInterface[] = [
+    {name: 'All', route: '/all'},
+    {name: 'Active', route: '/active'},
+    {name: 'Completed', route: '/completed'}
+  ]
+
   newTask: FormControl = new FormControl('', [Validators.required]);
 
   get itemsLeft(): number {
     return this.tasks.filter(task => !task.completed).length
+  }
+
+  get filter(): Observable<string> {
+    return this.ar.params.pipe(map(({filter}) => filter ? filter : ''))
+  }
+
+  constructor(public ar: ActivatedRoute) {
   }
 
   ngOnInit() {
