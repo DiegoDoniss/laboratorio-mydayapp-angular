@@ -6,6 +6,11 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/all',
+    pathMatch: 'full'
+  },
+  {
+    path: ':filter',
     component: HomeComponent,
     pathMatch: 'full'
   }

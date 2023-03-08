@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TaskComponent } from './pages/home/components/task/task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TaskFilterPipe } from './pipes/task-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TaskComponent
+    TaskComponent,
+    TaskFilterPipe
   ],
   imports: [
     BrowserModule,
