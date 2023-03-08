@@ -16,28 +16,13 @@
     <section class="main">
       <ul class="todo-list">
         <li class="completed">
-          <div class="view">
-            <input class="toggle" type="checkbox" checked />
-            <label>Learn JavaScript</label>
-            <button class="destroy"></button>
-          </div>
-          <input class="edit" value="Learn JavaScript" />
+          <app-task title="Learn JavaScript" [completed]="true"></app-task>
         </li>
         <li>
-          <div class="view">
-            <input class="toggle" type="checkbox" />
-            <label>Buy a unicorn</label>
-            <button class="destroy"></button>
-          </div>
-          <input class="edit" value="Buy a unicorn" />
+          <app-task title="Buy a unicorn" [completed]="true"></app-task>
         </li>
         <li class="editing">
-          <div class="view">
-            <input class="toggle" type="checkbox" />
-            <label>Make dishes</label>
-            <button class="destroy"></button>
-          </div>
-          <input class="edit" value="Make dishes" />
+          <app-task title="Make dishes" [completed]="true"></app-task>
         </li>
       </ul>
     </section>
