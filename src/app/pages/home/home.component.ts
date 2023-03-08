@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
     if (this.newTask.valid) {
       const newTask: TaskInterface = {
         id: this.tasks.length.toString(),
-        title: this.newTask.value,
+        title: this.newTask.value.trim(),
         completed: false
       }
       this.tasks.push(newTask)
