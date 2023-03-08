@@ -13,6 +13,9 @@ export class HomeComponent {
     {id: '1', title: 'Buy a unicorn', completed: false},
     {id: '2', title: 'Make dishes', completed: false},
   ]
+  get itemsLeft():number {
+    return this.tasks.filter(task => !task.completed).length
+  }
 
   constructor() {
   }
